@@ -101,7 +101,7 @@ static int ChildForkProc();
 
 /*+
  *	DkFork function take a parameter, that is main funtion address of
- *	the hole program. Return -1 on error otherwise return child process id
+ *	the whole program. Return -1 on error otherwise return child process id
  *	on parent process.
 -*/
 int DkFork(long long lMainProgAddr)
@@ -284,7 +284,7 @@ static BOOL CreateProcDbgEvtHandler()
 
 	RtlCopyMemory(&gProcDbgInf, &(gDbgEvt.u.CreateProcessInfo), sizeof(CREATE_PROCESS_DEBUG_INFO));
 
-	fRes = DebugSetProcessKillOnExit(TRUE);
+	fRes = DebugSetProcessKillOnExit(FALSE);
 	if (!fRes) return FALSE;
 
 	pNtHdr = ImageNtHeader(gProcDbgInf.lpBaseOfImage);
